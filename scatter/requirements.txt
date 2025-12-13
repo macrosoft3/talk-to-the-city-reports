@@ -1,0 +1,13 @@
+bertopic
+hdbscan
+langchain
+numpy
+openai
+pandas
+path
+sentence-transformers
+scikit-learn
+spacy
+tiktoken
+tqdm
+umap-learn
