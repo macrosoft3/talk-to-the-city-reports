@@ -9,7 +9,7 @@ type Props = {
 }
 const Appendix = ({ config, translator }: Props) => {
   const { t, manualChanges } = translator
-  const steps = ['extraction', 'embedding', 'clustering', 'labelling', 'takeaways', 'overview']
+  const steps = ['conversion', 'extraction', 'embedding', 'clustering', 'labelling', 'takeaways', 'overview']
   return <div id="appendix">
     <hr className="h-px my-8 bg-gray-600 border-0 dark:bg-gray-700"></hr>
     <h2 className='text-3xl font-bold my-4 border-t-black'>{t("Appendix")}</h2>
