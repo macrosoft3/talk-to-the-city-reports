@@ -11,7 +11,10 @@ from utils import messages, update_progress
 def extraction(config):
     dataset = config["output_dir"]
     path = f"outputs/{dataset}/args.csv"
-    comments = pd.read_csv(f"inputs/{config['input']}.csv")
+    if os.path.exists(f"inputs/{config['input']}.pdf"):
+        comments = pd.read_csv(f"outputs/{dataset}/comments.csv")
+    else:
+        comments = pd.read_csv(f"inputs/{config['input']}.csv")
 
     model = config["extraction"]["model"]
     prompt = config["extraction"]["prompt"]

@@ -25,12 +25,15 @@ class Comments(BaseModel):
 
 
 def conversion(config):
-    dataset = config["output_dir"]
-    path = f"inputs/{config['input']}.csv"
-    docs = read_pdf(f"inputs/{config['input']}.pdf")
-
-    if os.path.splitext(f"inputs/{config['input']}.pdf")[1] == ".csv":
+    if not os.path.exists(f"inputs/{config['input']}.pdf"):
+        pd.DataFrame(columns=["comment-id", "comment-body"]).to_csv(
+            f"outputs/{config['output_dir']}/comments.csv", index=False
+        )
+        update_progress(config, total=0)
         return
+    dataset = config["output_dir"]
+    path = f"outputs/{dataset}/comments.csv"
+    docs = read_pdf(f"inputs/{config['input']}.pdf")
 
     model = config["conversion"]["model"]
     prompt = config["conversion"]["prompt"]
