@@ -58,6 +58,7 @@ def translation(config):
         "Appendix",
         "This report was generated using an AI pipeline that consists of the following steps",
         "Step",
+        "conversion",
         "extraction",
         "show code",
         "hide code",
